@@ -29,6 +29,7 @@
         background: #000;
         color: #fff;
         font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
         overflow-x: hidden;
         overflow-y: auto;
         animation: bgPulse 6s infinite alternate;
@@ -52,7 +53,6 @@
         position: relative;
         z-index: 10;
         padding-bottom: 80px;
-        transition: transform 0.7s ease;
     }
 
     .logo {
@@ -89,12 +89,12 @@
     }
 
     .links {
-        margin-top: 30px;
+        margin-top: 15px;
         display: flex;
         flex-direction: column;
         gap: 15px;
         align-items: center;
-        transition: transform 0.7s ease;
+        transition: all 0.5s ease;
     }
 
     .links a {
@@ -134,42 +134,15 @@
     }
 
     /* Sobre mí */
-    #sobre-mi-btn {
-        padding: 15px 25px;
-        font-size: 20px;
-        border: 2px solid #742aff;
-        border-radius: 12px;
-        background: transparent;
-        color: #fff;
-        cursor: pointer;
-        margin-top: 60px;
-        box-shadow: 0 0 10px #742aff70;
-        transition: all 0.5s ease;
-    }
-
-    #sobre-mi-btn:hover {
-        background: #742aff;
-        color: #000;
-        transform: scale(1.05);
-        box-shadow: 0 0 20px #c898ff;
-    }
-
     #sobre-mi-text {
         display: none;
         max-width: 400px;
-        margin: 20px auto 30px auto;
+        margin: 0 auto 20px auto;
         font-size: 16px;
         line-height: 1.5;
         opacity: 0.9;
     }
 
-    .content.shift-left {
-        transform: translateX(-420px);
-    }
-
-    .links.shift-down {
-        transform: translateY(120px);
-    }
 </style>
 </head>
 
@@ -177,19 +150,18 @@
 
 <canvas id="particles"></canvas>
 
-<div class="content" id="main-content">
-
-    <button id="sobre-mi-btn">Sobre mí</button>
-
-    <div id="sobre-mi-text">
-        Ampliamente inspirado por Los Prisioneros y el rap español, Joaquín Lazo 432 nace con el sueño de aportar un mensaje potente.
-        También graba videos del ámbito gaming, siempre intentando sacar una sonrisa y formar una bonita comunidad.
-    </div>
+<div class="content">
 
     <img src="glowdown.png" class="logo" alt="Logo de Joaquín Lazo 432" />
 
     <h1>Joaquín Lazo 432 – Perfil Oficial</h1>
     <h2>Redes Oficiales</h2>
+
+    <!-- SOBRE MÍ -->
+    <div id="sobre-mi-text">
+        Ampliamente inspirado por Los Prisioneros y el rap español, Joaquín Lazo 432 nace con el sueño de aportar un mensaje potente.
+        También graba videos del ámbito gaming, siempre intentando sacar una sonrisa y formar una bonita comunidad.
+    </div>
 
     <div class="links" id="links-container">
         <a href="https://www.youtube.com/@joaquinlazo432Tv" target="_blank">YouTube – Gaming</a>
@@ -203,19 +175,16 @@
     <p class="seo-text">
         Joaquín Lazo 432 es creador de música, contenido gaming y directos en YouTube, Instagram y TikTok. Aquí encontrarás todas sus redes oficiales reunidas en un solo lugar.
     </p>
+
 </div>
 
 <script>
-const content = document.getElementById('main-content');
-const btn = document.getElementById('sobre-mi-btn');
 const sobreMiText = document.getElementById('sobre-mi-text');
 const links = document.getElementById('links-container');
 
-btn.addEventListener('click', () => {
-    content.classList.add('shift-left');
+// Mostrar el resumen sobre los links al cargar
+window.addEventListener('DOMContentLoaded', () => {
     sobreMiText.style.display = 'block';
-    btn.style.display = 'none';
-    links.classList.add('shift-down');
 });
 
 // Partículas
