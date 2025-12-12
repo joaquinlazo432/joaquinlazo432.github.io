@@ -35,13 +35,11 @@
         animation: bgPulse 6s infinite alternate;
     }
 
-    /* Fondo animado suave */
     @keyframes bgPulse {
         from { background-color: #070707; }
         to   { background-color: #0e0e15; }
     }
 
-    /* CANVAS DE PARTÍCULAS */
     #particles {
         position: fixed;
         top: 0;
@@ -51,14 +49,12 @@
         z-index: 0;
     }
 
-    /* CONTENIDO ENCIMA DEL CANVAS */
     .content {
         position: relative;
         z-index: 10;
         padding-bottom: 80px;
     }
 
-    /* LOGO FLOTANDO */
     .logo {
         width: 260px;
         margin: 40px auto 10px auto;
@@ -74,14 +70,12 @@
         100% { transform: translateY(0px); }
     }
 
-    /* TITULO SEO */
     h1 {
         font-size: 30px;
         margin-top: 10px;
         text-shadow: 0 0 10px #742aff;
     }
 
-    /* TITULO NEÓN */
     h2 {
         font-size: 26px;
         margin-top: 5px;
@@ -94,7 +88,6 @@
         to   { text-shadow: 0 0 25px #c27bff; }
     }
 
-    /* ENLACES ANIMADOS */
     .links {
         margin-top: 30px;
         display: flex;
@@ -129,7 +122,6 @@
         box-shadow: 0 0 20px #c898ff;
     }
 
-    /* TEXTO SEO EXTRA */
     .seo-text {
         margin-top: 40px;
         font-size: 14px;
@@ -139,17 +131,13 @@
         margin-right: auto;
         line-height: 1.4;
     }
-
 </style>
 </head>
 
 <body>
-
-<!-- CANVAS PARA LAS PARTÍCULAS -->
 <canvas id="particles"></canvas>
 
 <div class="content">
-
     <img src="glowdown.png" class="logo" alt="Logo de Joaquín Lazo 432" />
 
     <h1>Joaquín Lazo 432 – Perfil Oficial</h1>
@@ -165,13 +153,10 @@
     </div>
 
     <p class="seo-text">
-        Joaquín Lazo 432 es creador de música, contenido gaming y directos en plataformas como YouTube, Instagram y TikTok. 
-        Aquí encontrarás todas sus redes oficiales reunidas en un solo lugar.
+        Joaquín Lazo 432 es creador de música, contenido gaming y directos en YouTube, Instagram y TikTok. Aquí encontrarás todas sus redes oficiales reunidas en un solo lugar.
     </p>
-
 </div>
 
-<!-- SCRIPT DE PARTÍCULAS -->
 <script>
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
@@ -199,7 +184,7 @@ class Particle {
     draw() {
         ctx.fillStyle = "rgba(255,255,255,0.8)";
         ctx.beginPath();
-        ctx.arc(this.x, this.size, this.size, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
     }
 }
@@ -213,10 +198,7 @@ function init() {
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particlesArray.forEach(p => {
-        p.update();
-        p.draw();
-    });
+    particlesArray.forEach(p => { p.update(); p.draw(); });
     requestAnimationFrame(animate);
 }
 
@@ -229,6 +211,5 @@ window.addEventListener("resize", () => {
     init();
 });
 </script>
-
 </body>
 </html>
