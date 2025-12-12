@@ -133,14 +133,35 @@
         line-height: 1.4;
     }
 
-    /* Sobre mí */
+    /* Botón Sobre mí */
+    #sobre-mi-btn {
+        padding: 12px 20px;
+        font-size: 18px;
+        border: 2px solid #742aff;
+        border-radius: 12px;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px #742aff70;
+        transition: all 0.4s ease;
+    }
+
+    #sobre-mi-btn:hover {
+        background: #742aff;
+        color: #000;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #c898ff;
+    }
+
     #sobre-mi-text {
         display: none;
         max-width: 400px;
-        margin: 0 auto 20px auto;
+        margin: 10px auto 20px auto;
         font-size: 16px;
         line-height: 1.5;
         opacity: 0.9;
+        transition: all 0.5s ease;
     }
 
 </style>
@@ -157,13 +178,16 @@
     <h1>Joaquín Lazo 432 – Perfil Oficial</h1>
     <h2>Redes Oficiales</h2>
 
-    <!-- SOBRE MÍ -->
-    <div id="sobre-mi-text">
-        Ampliamente inspirado por Los Prisioneros y el rap español, Joaquín Lazo 432 nace con el sueño de aportar un mensaje potente.
-        También graba videos del ámbito gaming, siempre intentando sacar una sonrisa y formar una bonita comunidad.
-    </div>
-
     <div class="links" id="links-container">
+        <!-- BOTÓN SOBRE MÍ -->
+        <button id="sobre-mi-btn">Sobre mí</button>
+        <!-- TEXTO RESUMEN -->
+        <div id="sobre-mi-text">
+            Ampliamente inspirado por Los Prisioneros y el rap español, Joaquín Lazo 432 nace con el sueño de aportar un mensaje potente.
+            También graba videos del ámbito gaming, siempre intentando sacar una sonrisa y formar una bonita comunidad.
+        </div>
+        
+        <!-- LINKS -->
         <a href="https://www.youtube.com/@joaquinlazo432Tv" target="_blank">YouTube – Gaming</a>
         <a href="https://www.youtube.com/@joaquinlazo432" target="_blank">YouTube – Música</a>
         <a href="https://www.youtube.com/@432directos" target="_blank">YouTube – Directos</a>
@@ -179,12 +203,13 @@
 </div>
 
 <script>
+// Mostrar resumen al hacer clic en el botón
+const btn = document.getElementById('sobre-mi-btn');
 const sobreMiText = document.getElementById('sobre-mi-text');
-const links = document.getElementById('links-container');
 
-// Mostrar el resumen sobre los links al cargar
-window.addEventListener('DOMContentLoaded', () => {
+btn.addEventListener('click', () => {
     sobreMiText.style.display = 'block';
+    btn.style.display = 'none'; // opcional, para ocultar el botón
 });
 
 // Partículas
