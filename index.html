@@ -2,22 +2,25 @@
 <html lang="es">
 <head>
 
+<!-- SEO -->
+<title>Joaquín Lazo 432 – Música, Gaming y Redes Oficiales</title>
+<meta name="description" content="Página oficial de Joaquín Lazo 432. Música, gaming, directos y todas sus redes sociales oficiales. YouTube, Instagram, TikTok y más.">
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <!-- OPEN GRAPH -->
-<meta property="og:title" content="Joaquín Lazo 432" />
-<meta property="og:description" content="Redes oficiales de Joaquín Lazo 432 – Música, Gaming y Directos." />
+<meta property="og:title" content="Joaquín Lazo 432 – Redes Oficiales" />
+<meta property="og:description" content="Página oficial de Joaquín Lazo 432 · Música · Gaming · Directos · Todas sus redes." />
 <meta property="og:image" content="https://raw.githubusercontent.com/joaquinlazo432/joaquinlazo432.github.io/main/glowdown.png" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://joaquinlazo432.github.io/" />
 
 <!-- TWITTER -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Joaquín Lazo 432" />
-<meta name="twitter:description" content="Redes oficiales de Joaquín Lazo 432 – Música, Gaming y Directos." />
+<meta name="twitter:title" content="Joaquín Lazo 432 – Redes Oficiales" />
+<meta name="twitter:description" content="Página oficial de Joaquín Lazo 432 · Música · Gaming · Directos." />
 <meta name="twitter:image" content="https://raw.githubusercontent.com/joaquinlazo432/joaquinlazo432.github.io/main/glowdown.png" />
-
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Joaquin Lazo 432</title>
 
 <style>
     body {
@@ -52,7 +55,7 @@
     .content {
         position: relative;
         z-index: 10;
-        padding-bottom: 50px;
+        padding-bottom: 80px;
     }
 
     /* LOGO FLOTANDO */
@@ -71,9 +74,16 @@
         100% { transform: translateY(0px); }
     }
 
+    /* TITULO SEO */
+    h1 {
+        font-size: 30px;
+        margin-top: 10px;
+        text-shadow: 0 0 10px #742aff;
+    }
+
     /* TITULO NEÓN */
     h2 {
-        font-size: 28px;
+        font-size: 26px;
         margin-top: 5px;
         text-shadow: 0 0 10px #742aff;
         animation: glowText 2.5s infinite alternate;
@@ -118,6 +128,18 @@
         transform: scale(1.05);
         box-shadow: 0 0 20px #c898ff;
     }
+
+    /* TEXTO SEO EXTRA */
+    .seo-text {
+        margin-top: 40px;
+        font-size: 14px;
+        opacity: 0.7;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.4;
+    }
+
 </style>
 </head>
 
@@ -128,8 +150,9 @@
 
 <div class="content">
 
-    <img src="glowdown.png" class="logo" alt="Logo" />
+    <img src="glowdown.png" class="logo" alt="Logo de Joaquín Lazo 432" />
 
+    <h1>Joaquín Lazo 432 – Perfil Oficial</h1>
     <h2>Redes Oficiales</h2>
 
     <div class="links">
@@ -140,6 +163,11 @@
         <a href="https://www.instagram.com/joaquinlazo432/" target="_blank">Instagram – Música</a>
         <a href="https://www.tiktok.com/@joaquinlazo432?lang=es-419" target="_blank">TikTok</a>
     </div>
+
+    <p class="seo-text">
+        Joaquín Lazo 432 es creador de música, contenido gaming y directos en plataformas como YouTube, Instagram y TikTok. 
+        Aquí encontrarás todas sus redes oficiales reunidas en un solo lugar.
+    </p>
 
 </div>
 
@@ -169,4 +197,38 @@ class Particle {
         if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
     draw() {
-        ctx.fillStyle = "rgba(25
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        ctx.beginPath();
+        ctx.arc(this.x, this.size, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function init() {
+    particlesArray = [];
+    for (let i = 0; i < 80; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+window.addEventListener("resize", () => {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    init();
+});
+</script>
+
+</body>
+</html>
