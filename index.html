@@ -29,7 +29,6 @@
         background: #000;
         color: #fff;
         font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
         overflow-x: hidden;
         overflow-y: auto;
         animation: bgPulse 6s infinite alternate;
@@ -53,6 +52,7 @@
         position: relative;
         z-index: 10;
         padding-bottom: 80px;
+        transition: transform 0.7s ease;
     }
 
     .logo {
@@ -94,6 +94,7 @@
         flex-direction: column;
         gap: 15px;
         align-items: center;
+        transition: transform 0.7s ease;
     }
 
     .links a {
@@ -131,19 +132,66 @@
         margin-right: auto;
         line-height: 1.4;
     }
+
+    /* Sobre mí */
+    #sobre-mi-btn {
+        padding: 15px 25px;
+        font-size: 20px;
+        border: 2px solid #742aff;
+        border-radius: 12px;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 60px;
+        box-shadow: 0 0 10px #742aff70;
+        transition: all 0.5s ease;
+    }
+
+    #sobre-mi-btn:hover {
+        background: #742aff;
+        color: #000;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #c898ff;
+    }
+
+    #sobre-mi-text {
+        display: none;
+        max-width: 400px;
+        margin: 20px auto 30px auto;
+        font-size: 16px;
+        line-height: 1.5;
+        opacity: 0.9;
+    }
+
+    .content.shift-left {
+        transform: translateX(-420px);
+    }
+
+    .links.shift-down {
+        transform: translateY(120px);
+    }
 </style>
 </head>
 
 <body>
+
 <canvas id="particles"></canvas>
 
-<div class="content">
+<div class="content" id="main-content">
+
+    <button id="sobre-mi-btn">Sobre mí</button>
+
+    <div id="sobre-mi-text">
+        Ampliamente inspirado por Los Prisioneros y el rap español, Joaquín Lazo 432 nace con el sueño de aportar un mensaje potente.
+        También graba videos del ámbito gaming, siempre intentando sacar una sonrisa y formar una bonita comunidad.
+    </div>
+
     <img src="glowdown.png" class="logo" alt="Logo de Joaquín Lazo 432" />
 
     <h1>Joaquín Lazo 432 – Perfil Oficial</h1>
     <h2>Redes Oficiales</h2>
 
-    <div class="links">
+    <div class="links" id="links-container">
         <a href="https://www.youtube.com/@joaquinlazo432Tv" target="_blank">YouTube – Gaming</a>
         <a href="https://www.youtube.com/@joaquinlazo432" target="_blank">YouTube – Música</a>
         <a href="https://www.youtube.com/@432directos" target="_blank">YouTube – Directos</a>
@@ -158,14 +206,25 @@
 </div>
 
 <script>
+const content = document.getElementById('main-content');
+const btn = document.getElementById('sobre-mi-btn');
+const sobreMiText = document.getElementById('sobre-mi-text');
+const links = document.getElementById('links-container');
+
+btn.addEventListener('click', () => {
+    content.classList.add('shift-left');
+    sobreMiText.style.display = 'block';
+    btn.style.display = 'none';
+    links.classList.add('shift-down');
+});
+
+// Partículas
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
-
 class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
@@ -177,39 +236,30 @@ class Particle {
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
-
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
     draw() {
         ctx.fillStyle = "rgba(255,255,255,0.8)";
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
         ctx.fill();
     }
 }
 
 function init() {
     particlesArray = [];
-    for (let i = 0; i < 80; i++) {
-        particlesArray.push(new Particle());
-    }
+    for(let i=0;i<80;i++) particlesArray.push(new Particle());
 }
-
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     particlesArray.forEach(p => { p.update(); p.draw(); });
     requestAnimationFrame(animate);
 }
-
 init();
 animate();
-
-window.addEventListener("resize", () => {
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-    init();
-});
+window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; init(); });
 </script>
+
 </body>
 </html>
