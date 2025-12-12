@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-<head <!-- OPEN GRAPH -->
+<head>
+
+<!-- OPEN GRAPH -->
 <meta property="og:title" content="Joaquín Lazo 432" />
 <meta property="og:description" content="Redes oficiales de Joaquín Lazo 432 – Música, Gaming y Directos." />
 <meta property="og:image" content="https://raw.githubusercontent.com/joaquinlazo432/joaquinlazo432.github.io/main/glowdown.png" />
@@ -12,33 +14,28 @@
 <meta name="twitter:title" content="Joaquín Lazo 432" />
 <meta name="twitter:description" content="Redes oficiales de Joaquín Lazo 432 – Música, Gaming y Directos." />
 <meta name="twitter:image" content="https://raw.githubusercontent.com/joaquinlazo432/joaquinlazo432.github.io/main/glowdown.png" />
->
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Joaquin Lazo 432</title>
 
 <style>
     body {
-     body {
-    margin: 0;
-    padding: 0;
-    background: #000;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    overflow-x: hidden;   /* 👉 No permite scroll horizontal */
-    overflow-y: auto;     /* 👉 PERMITE scroll vertical */
-}
-
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        overflow-x: hidden;  /* No scroll horizontal */
+        overflow-y: auto;    /* Permitir scroll vertical */
+        animation: bgPulse 6s infinite alternate;
     }
 
     /* Fondo animado suave */
     @keyframes bgPulse {
         from { background-color: #070707; }
         to   { background-color: #0e0e15; }
-    }
-    body {
-        animation: bgPulse 6s infinite alternate;
     }
 
     /* CANVAS DE PARTÍCULAS */
@@ -55,6 +52,7 @@
     .content {
         position: relative;
         z-index: 10;
+        padding-bottom: 40px; /* Para que el TikTok no quede cortado */
     }
 
     /* LOGO FLOTANDO */
@@ -206,5 +204,3 @@ window.addEventListener("resize", () => {
 
 </body>
 </html>
-
-
