@@ -94,7 +94,6 @@
         flex-direction: column;
         gap: 15px;
         align-items: center;
-        transition: all 0.5s ease;
     }
 
     .links a {
@@ -133,7 +132,6 @@
         line-height: 1.4;
     }
 
-    /* Botón Sobre mí */
     #sobre-mi-btn {
         padding: 12px 20px;
         font-size: 18px;
@@ -161,7 +159,6 @@
         font-size: 16px;
         line-height: 1.5;
         opacity: 0.9;
-        transition: all 0.5s ease;
     }
 
 </style>
@@ -178,19 +175,23 @@
     <h1>Joaquín Lazo 432 – Perfil Oficial</h1>
     <h2>Redes Oficiales</h2>
 
-    <div class="links" id="links-container">
-        <!-- BOTÓN SOBRE MÍ -->
+    <div class="links">
+
         <button id="sobre-mi-btn">Sobre mí</button>
-        <!-- TEXTO RESUMEN -->
+
         <div id="sobre-mi-text">
             Ampliamente inspirado por Los Prisioneros y el rap español, Joaquín Lazo 432 nace con el sueño de aportar un mensaje potente.
             También graba videos del ámbito gaming, siempre intentando sacar una sonrisa y formar una bonita comunidad.
         </div>
-        
+
         <!-- LINKS -->
         <a href="https://www.youtube.com/@joaquinlazo432" target="_blank">YouTube – Música</a>
         <a href="https://www.youtube.com/@joaquinlazo432Tv" target="_blank">YouTube – Gaming</a>
         <a href="https://www.youtube.com/@432directos" target="_blank">YouTube – Directos</a>
+
+        <!-- NUEVO -->
+        <a href="https://youtube.com/@hoyhablamosdepodcast?si=wLdnJD8XkMolAyRn" target="_blank">HoyHablamosDe – Podcast</a>
+
         <a href="https://www.instagram.com/joaquinlazo432/" target="_blank">Instagram – Música</a>
         <a href="https://www.instagram.com/joaquin_a.k.a_joaquinlazo432/" target="_blank">Instagram – Gaming</a>
         <a href="https://www.tiktok.com/@joaquinlazo432?lang=es-419" target="_blank">TikTok</a>
@@ -203,13 +204,12 @@
 </div>
 
 <script>
-// Mostrar resumen al hacer clic en el botón
 const btn = document.getElementById('sobre-mi-btn');
 const sobreMiText = document.getElementById('sobre-mi-text');
 
 btn.addEventListener('click', () => {
     sobreMiText.style.display = 'block';
-    btn.style.display = 'none'; // ocultar el botón después de clic
+    btn.style.display = 'none';
 });
 
 // Partículas
@@ -252,7 +252,12 @@ function animate() {
 }
 init();
 animate();
-window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; init(); });
+
+window.addEventListener('resize', () => {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    init();
+});
 </script>
 
 </body>
